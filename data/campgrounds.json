@@ -1,0 +1,19 @@
+{
+	"campgrounds": [
+		{
+			"_id" : 1,
+			"name" : "The University of Texas at Dallas",
+			"image" : "https://i2.wp.com/cs.utdallas.edu/wp-content/uploads/2019/10/ECSS-Front-Sign-2.jpg?w=1500&ssl=1",
+			"description" : "The University of Texas at Dallas is a rising public research powerhouse with more than 28,000 students in eight schools and more than 140 academic degrees including top-ranked programs in business, engineering, science, audiology and arts and technology. The campus community is enriched by a commitment to the arts, service learning opportunities and an athletics program with new esports teams. UTD students, faculty, staff and alumni continue to rise to new challenges, proving that Comets shine bright.",
+			"author" : 
+			{
+				"_id" : 1,
+				"username" : "admin"
+			},
+			"comments" :
+			{
+				
+			}
+		}
+	]
+}

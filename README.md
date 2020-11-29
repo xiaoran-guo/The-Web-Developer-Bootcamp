@@ -32,3 +32,7 @@ Use MongoDB command line tools or the shell script we provided:
 /usr/local/bin/node /usr/local/bin/nodemon
 ```
 
+### go to webpage localhost:3000
+```
+http://localhost:3000/
+```

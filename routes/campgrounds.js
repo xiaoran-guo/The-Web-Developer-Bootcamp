@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var Campground = require("../models/campground");
 var middleware = require("../middleware");
+var User = require("../models/user");
 
 router.get("/", function(req, res){
 	var noMatch = null;
@@ -58,7 +59,7 @@ router.get("/:id", function(req, res){
 		if (err) {
 			console.log(err);
 		} else {
-			res.render("campgrounds/show", {campground: foundCampground});
+			res.render("campgrounds/show", {campground: foundCampground, User : User});
 		}
 	})
 });

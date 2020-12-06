@@ -8,7 +8,7 @@ router.get("/", function(req, res){
 	var noMatch = null;
 	const conditions = {};
 	const category = req.query.category;
-	if (category != 'all') {
+	if (category && category != 'all') {
 		conditions.category = category;
 	}
 	if(req.query.search) {

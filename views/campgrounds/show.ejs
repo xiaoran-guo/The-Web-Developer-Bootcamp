@@ -16,6 +16,13 @@
 				<div class="caption-full">
 					<h4 class="pull-right">$20.00/Person</h4>
 					<h4><a><%= campground.name %></a></h4>
+					<h5><i>
+						<%
+							var ca = campground.category;
+							var newCa = ca ? ca.charAt(0).toUpperCase() + ca.slice(1) : " ";
+ 						%>
+						<%= newCa %>
+						</i></h5>
 					<p><%= campground.description %></p>
 					<p><em>Submitted By <%= campground.author.username %></em></p>
 					<% if(currentUser){ %>

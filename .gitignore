@@ -125,3 +125,6 @@ dist
 *.iml
 out
 gen
+
+# MacOS files
+.DS_Store

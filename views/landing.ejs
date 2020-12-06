@@ -17,6 +17,12 @@
 			<form action="/campgrounds" method="GET" class="form-inline">
 				<div class="form-group">
 					<input class="form-control" type = "text" name = "search" placeholder = "Search Spot">
+                    <select class="form-control" id="category-selector" name="category">
+                        <option value="all">All</option>
+                        <option value="park">Park</option>
+                        <option value="campus">Campus</option>
+                        <option value="others">Others</option>
+                    </select>
 					<input class="btn btn-default" type = "submit" value = "Search">
 				</div>	
 			</form>

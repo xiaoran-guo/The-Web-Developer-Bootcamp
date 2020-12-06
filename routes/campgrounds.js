@@ -6,9 +6,15 @@ var User = require("../models/user");
 
 router.get("/", function(req, res){
 	var noMatch = null;
+	const conditions = {};
+	const category = req.query.category;
+	if (category != 'all') {
+		conditions.category = category;
+	}
 	if(req.query.search) {
 		const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-		Campground.find({description: regex}, function(err, allcampgrounds){
+		conditions.description = regex;
+		Campground.find(conditions, function(err, allcampgrounds){
 			if(err){
 				console.log(err);
 			} else {
@@ -19,7 +25,7 @@ router.get("/", function(req, res){
 			}
 		});
 	} else {
-		Campground.find({}, function(err, allcampgrounds){
+		Campground.find(conditions, function(err, allcampgrounds){
 			if(err){
 				console.log(err);
 			} else {
@@ -32,13 +38,14 @@ router.get("/", function(req, res){
 router.post("/", middleware.isLoggedIn, function(req, res){
 	// get data from the form and add to campsgrounds array
 	var name = req.body.name;
+	const category = req.body.category;
 	var image = req.body.image;
 	var desc = req.body.description;
 	var author = {
 		id: req.user._id,
 		username: req.user.username
 	}	
-	var newCampground = {name: name, image: image, description: desc, author: author};
+	var newCampground = {name: name, category: category, image: image, description: desc, author: author};
 	Campground.create(newCampground, function(err, newlyCreated){
 		if(err){
 			console.log(err);

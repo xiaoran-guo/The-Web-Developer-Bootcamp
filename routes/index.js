@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require("passport");
 var	User = require("../models/user");
 var Campground = require("../models/campground");
+const softDelete = require("../middleware/softDelete");
 
 router.get("/", function(req, res){
 	res.render("landing");
@@ -63,6 +64,7 @@ router.get("/favorite/:id", function(req, res){
 			if(err){
 				console.log(err);
 			} else {
+				allcampgrounds = softDelete.filterDeletedSpots(allcampgrounds);
 				res.render("favorites/index", {campgrounds: allcampgrounds, noMatch: noMatch});
 			}
 		});

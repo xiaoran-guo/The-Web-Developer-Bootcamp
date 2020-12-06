@@ -3,6 +3,7 @@ var router = express.Router();
 var Campground = require("../models/campground");
 var middleware = require("../middleware");
 var User = require("../models/user");
+const softDelete = require("../middleware/softDelete");
 
 router.get("/", function(req, res){
 	var noMatch = null;
@@ -29,6 +30,7 @@ router.get("/", function(req, res){
 			if(err){
 				console.log(err);
 			} else {
+				allcampgrounds = softDelete.filterDeletedSpots(allcampgrounds);
 				res.render("campgrounds/index", {campgrounds: allcampgrounds, noMatch: noMatch});
 			}
 		});
@@ -93,7 +95,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
 
 // DELETE CAMPGROUND ROUTE
 router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
-	Campground.findByIdAndRemove(req.params.id, function(err){
+	Campground.findByIdAndUpdate(req.params.id, {"deleted": true}, function(err, updatedCampground){
 		if(err){
 			res.redirect("/campgrounds");
 		} else {

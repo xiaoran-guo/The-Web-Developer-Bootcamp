@@ -17,7 +17,8 @@ var campgroundSchema = new mongoose.Schema({
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Comment"
 		}
-	]
+	],
+	deleted: Boolean
 });
 
 module.exports = mongoose.model("Campground", campgroundSchema);

@@ -16,8 +16,8 @@
 		<% campgrounds.forEach(function(campground){ %>
 			<div class="col-md-3 col-sm-6">
 				<div class="thumbnail">
-					<img src="<%= campground.image %>">
-					<div class="caption">
+					<img src="<%= campground.image %>" style="float: left; height: 200px; object-fit: cover;">
+					<div class="caption" style="display:inline-block; height:70px;">
 						<h4><%= campground.name %></h4>
 					</div>
 					<div>

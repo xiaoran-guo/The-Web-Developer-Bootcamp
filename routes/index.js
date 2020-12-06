@@ -29,6 +29,17 @@ router.post("/register", function(req, res){
 	});
 });
 
+router.post("/register/checkUsernameBeenUsed", function (req, res) {
+	const username = req.body.username;
+	User.find({username: username}, function (err, users) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.json({valid: users.length === 0});
+		}
+	})
+})
+
 router.get("/login", function(req, res){
 	res.render("login");
 });

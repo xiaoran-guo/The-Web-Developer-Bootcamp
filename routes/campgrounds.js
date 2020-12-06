@@ -19,6 +19,7 @@ router.get("/", function(req, res){
 			if(err){
 				console.log(err);
 			} else {
+				allcampgrounds = softDelete.filterDeletedSpots(allcampgrounds);
 				if(allcampgrounds.length < 1) {
 					noMatch = "No spots match that query, please try again.";
 				}

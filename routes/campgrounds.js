@@ -37,6 +37,24 @@ router.get("/", function(req, res){
 		});
 	}
 });
+router.get("/&page=:ids", function (req, res) {
+	console.log("--=-new page .........");
+	var noMatch = null;
+	const conditions = {};
+	const category = req.query.category;
+	if (category && category != 'all') {
+		conditions.category = category;
+	}
+	console.log("page", req.params.ids);
+	Campground.find(conditions, null, {limit: 4, skip: 4 * req.params.ids}, function (err, allcampgrounds) {
+		if (err) {
+			console.log(err);
+		} else {
+			allcampgrounds = softDelete.filterDeletedSpots(allcampgrounds);
+			res.render("campgrounds/index", {campgrounds: allcampgrounds, noMatch: noMatch});
+		}
+	});
+});
 
 router.post("/", middleware.isLoggedIn, function(req, res){
 	// get data from the form and add to campsgrounds array

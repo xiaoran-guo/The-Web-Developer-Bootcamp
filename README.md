@@ -36,6 +36,7 @@ Use MongoDB command line tools or the shell script we provided:
 ```
 http://localhost:3000/
 
-### admin account: admin
-    admin code: admin
+### admin info
+admin account: admin
+admin code: admin
 ```

@@ -38,7 +38,6 @@ router.get("/", function(req, res){
 	}
 });
 router.get("/&page=:ids", function (req, res) {
-	console.log("--=-new page .........");
 	var noMatch = null;
 	const conditions = {};
 	const category = req.query.category;

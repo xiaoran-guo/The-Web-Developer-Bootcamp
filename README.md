@@ -25,6 +25,8 @@ Use MongoDB command line tools or the shell script we provided:
 ```shell
 ./initial.sh
 ```
+If you would like to check the .JSON data manually, please visit /data folder
+
 
 ### start Node.js application
 
